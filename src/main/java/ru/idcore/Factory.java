@@ -16,9 +16,11 @@ public class Factory extends Thread {
     @Override
     public void run() {
         while (count < total) {
-            shop.receiveAuto();
-            count++;
             try {
+                System.out.println("Производитель произвел автомобиль и отправил в автосалон...");
+                Thread.sleep(timeForAuto);
+                shop.receiveAuto();
+                count++;
                 Thread.sleep(timeForAuto);
             } catch (InterruptedException e) {
                 e.printStackTrace();
